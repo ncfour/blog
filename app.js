@@ -1,12 +1,12 @@
-var express = require('express');
-var path = require('path');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
+var express = require('express');//å¯¼å…¥expressä¸­é—´ä»¶
+var path = require('path');//å¤„ç†è·¯å¾„
+var favicon = require('serve-favicon');//å¤„ç†æ”¶è—å¤¹å›¾æ ‡
+var logger = require('morgan');//å¤„ç†æ—¥å¿—
+var cookieParser = require('cookie-parser');//è§£æcookie
+var bodyParser = require('body-parser');//è§£æpostè¯·æ±‚ä½“
 
-var routes = require('./routes/index');//index Â·ÓÉ
-var users = require('./routes/users');//userÂ·ÓÉ
+var routes = require('./routes/index');//indexè·¯ç”±
+var users = require('./routes/users');//userè·¯ç”±
 
 var app = express();
 
@@ -16,15 +16,14 @@ app.set('view engine', 'jade');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
-app.use(logger('dev'));//ÉèÖÃÈÕÖ¾
-app.use(bodyParser.json());//½âÎöjson
-app.use(bodyParser.urlencoded({ extended: false }));//½âÎöĞòÁĞ»¯±íµ¥
-app.use(cookieParser());//½âÎöcookie req.headers.cookie
-app.use(express.static(path.join(__dirname, 'public')));//¾²Ì¬ÎÄ¼ş·şÎñÆ÷
-
+app.use(logger('dev'));//è®¾ç½®æ—¥å¿—
+app.use(bodyParser.json());//è§£æJSON
+app.use(bodyParser.urlencoded({ extended: false }));//è§£æåºåˆ—åŒ–è¡¨å•
+app.use(cookieParser());//è§£æcookie req.headers.cookie
+app.use(express.static(path.join(__dirname, 'public')));//é™æ€æ–‡ä»¶æœåŠ¡å™¨
 app.use('/', routes);
 app.use('/users', users);
-
+//app.use('/articles', articles);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
